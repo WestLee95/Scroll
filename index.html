@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nairobi - The Green City in the Sun</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Imprima&family=Monoton&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            overflow-x: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .container {
+            display: flex;
+            height: 100vh;
+            width: 400vw;
+        }
+
+        .section {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            
+            flex-shrink: 0;
+        }
+        
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: rgba(255, 255, 255, 0);
+            opacity: 0;
+            z-index: 1000;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        .mask-text {
+            font-family: "Monoton", sans-serif;
+            font-size: clamp(6rem, 18vw, 13rem);
+            font-weight: 700;
+            letter-spacing: 0.07em;
+            color: transparent;
+            background: url('assets/nai1.jpg') center/cover;
+            background-clip: text;
+            -webkit-background-clip: text;
+            text-align: center;
+            line-height: 2;
+        }
+        
+        .content-section {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .content-overlay {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(2px);
+            padding: 20px;
+            border-radius: 20px;
+            max-width: 600px;
+            margin: 0 2rem;
+        }
+        
+        .section-title {
+            font-family: "Imprima", sans-serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: rgb(255, 255, 255);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+        
+        .section-text {
+            font-family: 'Bad Script', cursive;
+            font-size: 25px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.95);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+        }
+        
+        .section-1 { background: #000; }
+        .section-2 { background-image: url('assets/nai3.jpg'); }
+        .section-3 { background-image: url('assets/nai2.jpg'); }
+        .section-4 { background-image: url('assets/nai4.jpg'); }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 0.4; }
+        }
+        
+        @media (max-width: 768px) {
+            .section-title { font-size: 2rem; }
+            .section-text { font-size: 1rem; }
+            .content-overlay { padding: 2rem; margin: 0 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <div class="container" id="container">
+        <!-- Section 1: Masked Text -->
+        <div class="section section-1 flex justify-center items-center">
+            <div class="mask-text">NAIROBI</div>
+            <div class="scroll-indicator">
+                Scroll right to explore →
+            </div>
+        </div>
+        
+        <!-- Section 2: Wildlife & Nature -->
+        <div class="section section-2 content-section
+                flex justify-left items-center">
+            <div class="content-overlay">
+                <h2 class="section-title">WILDLIFE CAPITAL</h2>
+                <p class="section-text">
+                    Nairobi is the only capital city in the world with a national park within its boundaries. 
+                    Nairobi National Park offers incredible wildlife viewing opportunities just minutes from 
+                    the city center, where you can spot lions, rhinos, giraffes, and over 400 bird species 
+                    against the backdrop of the city skyline.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Section 3: Business Hub -->
+        <div class="section section-3 content-section
+            flex justify-left items-center">
+            <div class="content-overlay">
+                <h2 class="section-title">BUSINESS HUB</h2>
+                <p class="section-text">
+                    Known as the "Silicon Savannah," Nairobi has emerged as Africa's leading technology 
+                    and innovation hub. The city hosts numerous multinational corporations, startups, 
+                    and tech companies, making it the economic powerhouse of East Africa and a gateway 
+                    to the continent's growing markets.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Section 4: Culture & Heritage -->
+        <div class="section section-4 content-section
+                flex justify-left items-center">
+            <div class="content-overlay">
+                <h2 class="section-title">CULTURAL MELTING POT</h2>
+                <p class="section-text">
+                    Nairobi is a vibrant cultural hub where traditional African heritage meets modern 
+                    cosmopolitan life. The city boasts world-class museums, art galleries, music venues, 
+                    and restaurants serving everything from local Kenyan cuisine to international delicacies, 
+                    reflecting its diverse population and rich cultural tapestry.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        
+        let currentSection = 0;
+        let targetSection = 0;
+        let isScrolling = false;
+        const totalSections = 4;
+        const container = document.getElementById('container');
+        const progressBar = document.getElementById('progressBar');
+        
+        // Prevent default scrolling
+        document.addEventListener('wheel', (e) => {
+            e.preventDefault();
+        }, { passive: false });
+        
+        // Handle horizontal scrolling with smooth progress
+        document.addEventListener('wheel', (e) => {
+            if (isScrolling) return;
+            
+            if (e.deltaY > 0 && targetSection < totalSections - 1) {
+                // Scroll right
+                targetSection++;
+                scrollToSection(targetSection);
+            } else if (e.deltaY < 0 && targetSection > 0) {
+                // Scroll left
+                targetSection--;
+                scrollToSection(targetSection);
+            }
+        });
+        
+        // Handle touch events for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            if (isScrolling) return;
+            
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0 && targetSection < totalSections - 1) {
+                    // Swipe left (scroll right)
+                    targetSection++;
+                    scrollToSection(targetSection);
+                } else if (diff < 0 && targetSection > 0) {
+                    // Swipe right (scroll left)
+                    targetSection--;
+                    scrollToSection(targetSection);
+                }
+            }
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (isScrolling) return;
+            
+            if (e.key === 'ArrowRight' && targetSection < totalSections - 1) {
+                targetSection++;
+                scrollToSection(targetSection);
+            } else if (e.key === 'ArrowLeft' && targetSection > 0) {
+                targetSection--;
+                scrollToSection(targetSection);
+            }
+        });
+        
+        function scrollToSection(sectionIndex) {
+            if (isScrolling) return;
+            
+            isScrolling = true;
+            const targetX = -sectionIndex * 100;
+            
+            // Create timeline for synchronized animations
+            const tl = gsap.timeline({
+                onComplete: () => {
+                    currentSection = sectionIndex;
+                    isScrolling = false;
+                }
+            });
+            
+            // Animate container and progress bar together
+            tl.to(container, {
+                x: `${targetX}vw`,
+                duration: 1.2, // ← SCROLL SPEED: Lower = faster, Higher = slower
+                ease: "power2.inOut",
+                onUpdate: () => {
+                    // Update progress bar in real-time during scroll
+                    const currentProgress = gsap.getProperty(container, "x");
+                    const progressPercent = Math.abs(currentProgress) / (window.innerWidth * (totalSections - 1)) * 100;
+                    gsap.set(progressBar, { width: `${progressPercent}%` });
+                }
+            });
+            
+            // Animate content on section change
+            animateContent(sectionIndex);
+        }
+        
+        function animateContent(sectionIndex) {
+            const currentSectionEl = document.querySelector(`.section-${sectionIndex + 1}`);
+            
+            if (sectionIndex === 0) {
+                // Animate masked text
+                gsap.fromTo('.mask-text', 
+                    { scale: 0.8, opacity: 0 },
+                    { scale: 1, opacity: 1, duration: 1, ease: "back.out(1.7)" }
+                );
+            } else {
+                // Animate content sections
+                const overlay = currentSectionEl.querySelector('.content-overlay');
+                const title = currentSectionEl.querySelector('.section-title');
+                const text = currentSectionEl.querySelector('.section-text');
+                
+                gsap.set([overlay, title, text], { opacity: 0, y: 50 });
+                
+                gsap.timeline()
+                    .to(overlay, { opacity: 1, duration: 0.5, ease: "power2.out" })
+                    .to(title, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, "-=0.3")
+                    .to(text, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, "-=0.4");
+            }
+        }
+        
+        // Initial animation
+        gsap.fromTo('.mask-text', 
+            { scale: 0.8, opacity: 0 },
+            { scale: 1, opacity: 1, duration: 1.5, ease: "back.out(1.7)", delay: 0.5 }
+        );
+        
+        gsap.fromTo('.scroll-indicator', 
+            { opacity: 0, y: 20 },
+            { opacity: 0.8, y: 0, duration: 1, ease: "power2.out", delay: 1.5 }
+        );
+        
+        // Smooth cursor following effect for desktop
+        if (window.innerWidth > 768) {
+            document.addEventListener('mousemove', (e) => {
+                const cursor = document.querySelector('.cursor');
+                if (!cursor) {
+                    const newCursor = document.createElement('div');
+                    newCursor.className = 'cursor';
+                    newCursor.style.cssText = `
+                        position: fixed;
+                        width: 20px;
+                        height: 20px;
+                        background: rgba(255,255,255,0.8);
+                        border-radius: 50%;
+                        pointer-events: none;
+                        z-index: 9999;
+                        transition: transform 0.1s ease;
+                    `;
+                    document.body.appendChild(newCursor);
+                }
+                
+                gsap.to('.cursor', {
+                    x: e.clientX - 10,
+                    y: e.clientY - 10,
+                    duration: 0.3,
+                    ease: "power2.out"
+                });
+            });
+        }
+    </script>
+</body>
+</html>
