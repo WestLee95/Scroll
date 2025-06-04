@@ -1,7 +1,9 @@
 # Nairobi - Horizontal Scrolling Website
 
 A stunning, interactive website showcasing Nairobi with smooth horizontal scrolling animations and immersive visual experiences.
-# Not yet fully responsive, best on Desktop.
+<span style="text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;">
+Not yet fully responsive, best on Desktop.
+</span> 
 
 ## 🌟 Features
 
